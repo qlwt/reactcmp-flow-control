@@ -3,7 +3,7 @@
     "type": "module",
     "version": "1.0.0",
     "main": "./build/bundle/entry/index.js",
-    "description": "Logic components for react",
+    "description": "Flow Control components for react",
     "keywords": ["react", "logic", "condition", "loop", "flow", "control", "switch", "if", "component", "element"],
     "homepage": "https://github.com/qlwt/reactcmp-flow-control#readme",
     "license": "MIT",
