@@ -1,7 +1,7 @@
 {
     "name": "@qyu/reactcmp-flow-control",
     "type": "module",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "main": "./build/bundle/entry/index.js",
     "description": "Flow Control components for react",
     "keywords": ["react", "logic", "condition", "loop", "flow", "control", "switch", "if", "component", "element"],
