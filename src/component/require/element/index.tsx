@@ -6,7 +6,7 @@ type Filtered<T extends readonly any[]> = {
 
 export type CmpRequire_Props<T extends readonly any[]> = {
     readonly value: T
-    readonly state_empty?: boolean
+    readonly state_empty?: boolean | ((value: Filtered<T>) => boolean)
 
     readonly fallback?: () => r.ReactNode
     readonly children?: r.ReactNode | ((value: Filtered<T>) => r.ReactNode)
@@ -17,12 +17,18 @@ type CmpRequire = {
 }
 
 export const CmpRequire: CmpRequire = r.memo(props => {
-    if (props.state_empty) {
+    if (props.state_empty === true) {
         return props.fallback?.() ?? null
     }
 
     for (const requirement of props.value) {
         if (requirement === undefined || requirement === null || requirement === false) {
+            return props.fallback?.() ?? null
+        }
+    }
+
+    if (typeof props.state_empty === "function") {
+        if (props.state_empty(props.value as Filtered<typeof props.value>)) {
             return props.fallback?.() ?? null
         }
     }
